@@ -1,5 +1,3 @@
-var message = null;
-
 $(function(){
     console.log('start');
     $('input#source').keyup(check_source);
