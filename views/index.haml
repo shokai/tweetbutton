@@ -5,9 +5,10 @@
     - if auth?
       %link{:rel => 'apple-touch-icon', :href => session[:twitter_icon]}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
+    %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts.css", :type => 'text/css'}
     %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
-    %script{:type => 'text/javascript', :src => "#{app_root}/js/main.js"}
+    %script{:type => 'text/javascript', :src => "#{app_root}/js/index.js"}
     :javascript
       var app_root = "#{app_root}";
   %body
@@ -18,8 +19,13 @@
           - unless auth?
             %a{:href => "#{app_root}/login"} [login twitter]
           - else
-            %a{:href => "#{app_root}/logout"} [logout]
             %img{:src => session[:twitter_icon], :width => 24, :height => 24}
             %a{:href => "http://twitter.com/#{session[:twitter_name]}"}
               @#{session[:twitter_name]}
-
+            &nbsp;|&nbsp;
+            %a{:href => "#{app_root}/logout"} [logout]
+      - if auth?
+        %div
+          - message = 'おきた'
+          %input{:type => 'text', :id => 'source', :value => message}
+          %div.button#make_btn make #{message} button

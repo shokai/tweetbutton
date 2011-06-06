@@ -6,12 +6,14 @@
       %link{:rel => 'apple-touch-icon', :href => session[:twitter_icon]}
     %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
+    %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts.css", :type => 'text/css'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
     :javascript
       var app_root = "#{app_root}";
   %body
     %div#content
-      %h1 #{@title}
+      %h1
+        %a{:href => app_root}= @title
       %div#twitter
         %div#login
           - unless auth?
@@ -22,9 +24,6 @@
               @#{session[:twitter_name]}
             &nbsp;|&nbsp;
             %a{:href => "#{app_root}/logout"} [logout]
-            &nbsp;|&nbsp;
-            %a{:href => app_root} 他のtweetを作成する
-      %div#tweet
-        #{@message}
+      %div#tweet= @message
       %div.button#tweet tweet
       %div#log
