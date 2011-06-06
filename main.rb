@@ -36,7 +36,7 @@ post '/tweet' do
       @mes = {:message => message, :response => res}.to_json
     rescue => e
       STDERR.puts e
-      @mes = {:error => 'tweet failed', :message => message}.to_json
+      @mes = {:error => 'tweet failed', :message => message, :response => e.to_s}.to_json
     end
   end
 end

@@ -8,8 +8,10 @@
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts.css", :type => 'text/css'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
+    %script{:type => 'text/javascript', :src => "#{app_root}/js/tweet.js"}
     :javascript
       var app_root = "#{app_root}";
+      var message = "#{@message}";
   %body
     %div#content
       %h1
@@ -24,6 +26,6 @@
               @#{session[:twitter_name]}
             &nbsp;|&nbsp;
             %a{:href => "#{app_root}/logout"} [logout]
-      %div#tweet= @message
+      %div#message= @message
       %div.button#tweet tweet
       %div#log
