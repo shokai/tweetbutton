@@ -1,0 +1,30 @@
+!!! XML
+%html
+  %head
+    %title #{@message}
+    - if auth?
+      %link{:rel => 'apple-touch-icon', :href => session[:twitter_icon]}
+    %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
+    %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
+    %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
+    :javascript
+      var app_root = "#{app_root}";
+  %body
+    %div#content
+      %h1 #{@title}
+      %div#twitter
+        %div#login
+          - unless auth?
+            %a{:href => "#{app_root}/login"} [login twitter]
+          - else
+            %img{:src => session[:twitter_icon], :width => 24, :height => 24}
+            %a{:href => "http://twitter.com/#{session[:twitter_name]}"}
+              @#{session[:twitter_name]}
+            &nbsp;|&nbsp;
+            %a{:href => "#{app_root}/logout"} [logout]
+            &nbsp;|&nbsp;
+            %a{:href => app_root} 他のtweetを作成する
+      %div#tweet
+        #{@message}
+      %div.button#tweet tweet
+      %div#log

@@ -1,0 +1,10 @@
+source 'http://rubygems.org'
+
+gem 'rack'
+gem 'thin'
+gem 'sinatra'
+gem 'sinatra-reloader'
+gem 'haml'
+gem 'json'
+gem 'twitter', '>=1.5.0'
+gem 'oauth'
