@@ -67,7 +67,11 @@ textarea#source {
     font-size : 15pt;
 }
 
-div#log {
+div#message {
+    font-size : 30pt;
+}
+
+div#log, div#info{
     margin-top : 12px;
     text-align : right;
     margin-right : 10px;
