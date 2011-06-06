@@ -30,7 +30,3 @@ var log = function(msg){
     $('div#log').html($('<p>').html(msg));
 };
 
-
-var set_message = function(message){
-    
-};
