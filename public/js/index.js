@@ -3,6 +3,7 @@ var message = null;
 $(function(){
     console.log('start');
     $('input#source').keyup(check_source);
+    $('input#source').keydown(check_source);
     $('#content').click(check_source);
     $('div.button#make_btn').click(function(){
         var message = $('input#source').val();
