@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 before do
-  @title = 'tweet button'
+  @title = 'Tweet Button'
 end
 
 def auth?
