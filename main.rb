@@ -36,7 +36,7 @@ post '/tweet' do
         config.oauth_token = session[:access_token]
         config.oauth_token_secret = session[:access_token_secret]
       end
-      res = Twitter.update message
+      res = Twitter.update "#{message} #tweet_button"
       @mes = {:message => message, :response => res}.to_json
     rescue => e
       STDERR.puts e
