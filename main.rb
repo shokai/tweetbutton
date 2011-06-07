@@ -16,6 +16,7 @@ end
 
 get '/t/*' do
   @message = params[:splat].join('/')
+  redirect app_root if !@message or @message.size < 1
   if auth?
     session[:tweet_message] = nil
   else
