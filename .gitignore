@@ -4,3 +4,4 @@
 *.lock
 .bundle
 config.yaml
+*#
