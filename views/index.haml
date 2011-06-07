@@ -26,11 +26,11 @@
               @#{session[:twitter_name]}
             &nbsp;|&nbsp;
             %a{:href => "#{app_root}/logout"} [logout]
-      - if auth?
-        %div
-          - message = session[:tweet_message] || 'おきた'
-          %input{:type => 'text', :id => 'source', :value => message}
-          %div.button#make_btn make #{message} button
+
+      %div
+        - message = session[:tweet_message] || 'おきた'
+        %input{:type => 'text', :id => 'source', :value => message}
+        %div.button#make_btn make #{message} button
       %div#info
         %a{:id => 'info'} [?]
         %div#detail
