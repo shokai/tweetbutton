@@ -3,13 +3,11 @@ $(function(){
 });
 
 var tweet = function(){
-    console.log("tweet");
     log('');
     var post_data = {message : message};
     $('div#tweet').unbind().addClass('button_disable').html('waiting twitter...');;
     $.post(app_root+'/tweet', post_data, function(res){
         if(res.error != null){
-            console.log(res.response);
             if(res.response.match("duplicate")) log('tweet failed - your tweet is a duplicate.');
             else log('tweet failed.');
         }

@@ -1,5 +1,4 @@
 $(function(){
-    console.log('start');
     $('input#source').keyup(check_source);
     $('input#source').keydown(check_source);
     $('#content').click(check_source);
@@ -18,7 +17,6 @@ $(function(){
 var check_source = function(e){
     var message = $('input#source').val();
     var make_btn = $('div.button#make_btn');
-    console.log(message);
     if(message.length < 1){
         make_btn.addClass('button_disable');
         return;
