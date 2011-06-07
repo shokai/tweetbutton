@@ -27,7 +27,7 @@
             %a{:href => "#{app_root}/logout"} [logout]
       - if auth?
         %div
-          - message = 'おきた'
+          - message = session[:tweet_message] || 'おきた'
           %input{:type => 'text', :id => 'source', :value => message}
           %div.button#make_btn make #{message} button
       %div#info

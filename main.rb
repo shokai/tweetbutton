@@ -16,6 +16,11 @@ end
 
 get '/t/*' do
   @message = params[:splat].join('/')
+  if auth?
+    session[:tweet_message] = nil
+  else
+    session[:tweet_message] = @message
+  end
   haml :tweet
 end
 
