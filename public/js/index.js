@@ -8,6 +8,11 @@ $(function(){
         if(message.length < 1) return
         location.href = app_root+'/t/'+message;
     });
+    $('a#info').click(function(){
+        var detail = $('div#detail');
+        if(detail.css('visibility') == 'hidden') detail.css('visibility', 'visible');
+        else detail.css('visibility', 'hidden');
+    });
 });
 
 var check_source = function(e){

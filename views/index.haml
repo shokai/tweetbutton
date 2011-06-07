@@ -9,6 +9,7 @@
     %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/index.js"}
+    %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
     :javascript
       var app_root = "#{app_root}";
   %body
@@ -29,3 +30,18 @@
           - message = 'おきた'
           %input{:type => 'text', :id => 'source', :value => message}
           %div.button#make_btn make #{message} button
+        %div#info
+          %a{:id => 'info'} [?]
+          %div#detail
+            %ul
+              %li
+                by
+                %a{:href => 'http://twitter.com/shokai'} @shokai
+                %li
+                  source code : 
+                  %a{:href => 'https://github.com/shokai/tweetbutton'} github
+                %li
+                  %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
+                     'data-url' => 'http://tweet.shokai.org', 'data-count' => 'horizontal',
+                     'data-via' => 'shokai'}
+                    Tweet

@@ -77,3 +77,8 @@ div#log, div#info{
     margin-right : 10px;
     font-size : 10pt;
 }
+
+div#detail {
+    margin-top : 50px;
+    visibility : hidden;
+}
