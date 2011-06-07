@@ -35,9 +35,14 @@
         %div.button.button_disable#tweet tweet
       %div#log
       %div#info
-        %p ホーム画面にブックマークすると便利です
-        %p 
-          %a{:id => 'info'} [?]
+        %ul
+          %li ホーム画面にブックマークすると便利です
+          %li
+            %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
+               'data-url' => 'http://tweet.shokai.org', 'data-count' => 'horizontal',
+               'data-via' => 'shokai', 'data-text' => "#{@message}ボタン"}
+              Tweet
+        %a{:id => 'info'} [?]
         %div#detail
           %ul
             %li
@@ -48,9 +53,4 @@
             %li
               source code : 
               %a{:href => 'https://github.com/shokai/tweetbutton'} github
-            %li
-              %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
-                 'data-url' => 'http://tweet.shokai.org', 'data-count' => 'horizontal',
-                 'data-via' => 'shokai', 'data-text' => "#{@message}ボタン"}
-                Tweet
 

@@ -79,6 +79,6 @@ div#log, div#info{
 }
 
 div#detail {
-    margin-top : 50px;
+    margin-top : 20px;
     visibility : hidden;
 }
