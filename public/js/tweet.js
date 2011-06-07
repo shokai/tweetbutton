@@ -1,5 +1,10 @@
 $(function(){
-   $('div.button#tweet').click(tweet);
+    if(auth) $('div.button#tweet').click(tweet);
+    $('a#info').click(function(){
+        var detail = $('div#detail');
+        if(detail.css('visibility') == 'hidden') detail.css('visibility', 'visible');
+        else detail.css('visibility', 'hidden');
+    });
 });
 
 var tweet = function(){

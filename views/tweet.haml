@@ -9,9 +9,11 @@
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts.css", :type => 'text/css'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/tweet.js"}
+    %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
     :javascript
       var app_root = "#{app_root}";
       var message = "#{@message}";
+      var auth = #{auth?};
   %body
     %div#content
       %h1
@@ -27,7 +29,28 @@
             &nbsp;|&nbsp;
             %a{:href => "#{app_root}/logout"} [logout]
       %div#message= @message
-      %div.button#tweet tweet
+      - if auth?
+        %div.button#tweet tweet
+      - else
+        %div.button.button_disable#tweet tweet
       %div#log
       %div#info
-        ホーム画面にブックマークすると便利です
+        %p ホーム画面にブックマークすると便利です
+        %p 
+          %a{:id => 'info'} [?]
+        %div#detail
+          %ul
+            %li
+              iPhoneのホーム画面にTweetボタンを作るサービスです
+            %li
+              by
+              %a{:href => 'http://twitter.com/shokai'} @shokai
+            %li
+              source code : 
+              %a{:href => 'https://github.com/shokai/tweetbutton'} github
+            %li
+              %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
+                 'data-url' => 'http://tweet.shokai.org', 'data-count' => 'horizontal',
+                 'data-via' => 'shokai', 'data-text' => "#{@message}ボタン"}
+                Tweet
+

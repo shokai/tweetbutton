@@ -15,7 +15,6 @@ get '/' do
 end
 
 get '/t/*' do
-  redirect app_root unless auth?
   @message = params[:splat].join('/')
   haml :tweet
 end
