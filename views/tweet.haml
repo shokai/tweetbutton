@@ -1,18 +1,19 @@
 !!! XML
 %html
   %head
-    %title #{@message}
+    %title #{h @message}
     - if auth?
       %link{:rel => 'apple-touch-icon', :href => session[:twitter_icon]}
     %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/main.css", :type => 'text/css'}
     %link{:rel => 'stylesheet', :href => "#{app_root}/css/fonts.css", :type => 'text/css'}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/jquery.js"}
+    %script{:type => 'text/javascript', :src => "#{app_root}/js/util.js"}
     %script{:type => 'text/javascript', :src => "#{app_root}/js/tweet.js"}
     %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
     :javascript
       var app_root = "#{app_root}";
-      var message = "#{@message}";
+      var message = "#{h @message}";
       var auth = #{auth?};
   %body
     %div#content
@@ -28,7 +29,7 @@
               @#{session[:twitter_name]}
             &nbsp;|&nbsp;
             %a{:href => "#{app_root}/logout"} [logout]
-      %div#message= @message
+      %div#message= h @message
       - if auth?
         %div.button#tweet tweet
       - else
@@ -40,7 +41,7 @@
           %li
             %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
                'data-url' => "#{app_root}/t/#{URI.encode @message}", 'data-count' => 'horizontal',
-               'data-text' => "#{@message}ボタン #tweet_button"}
+               'data-text' => "#{h @message}ボタン #tweet_button"}
               Tweet
         %a{:id => 'info'} [?]
         %div#detail

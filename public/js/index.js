@@ -23,7 +23,7 @@ var check_source = function(e){
     }
     else{
         make_btn.removeClass('button_disable');
-        make_btn.html("make "+message+" button");
+        make_btn.html("make "+message.htmlEscape()+" button");
     }
 };
 

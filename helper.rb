@@ -6,6 +6,10 @@ require 'yaml'
 require 'json'
 require 'oauth'
 require 'twitter'
+helpers do
+  include Rack::Utils
+  alias_method :h, :escape_html
+end
 
 begin
   @@conf = YAML::load open(File.dirname(__FILE__)+'/config.yaml').read
