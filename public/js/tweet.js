@@ -8,7 +8,7 @@ $(function(){
 });
 
 var tweet = function(){
-    return if !message or message.length < 1
+    if(!message || message.length < 1) return;
     log('');
     var post_data = {message : message};
     $('div#tweet').unbind().addClass('button_disable').html('waiting twitter...');;
