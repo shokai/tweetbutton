@@ -13,6 +13,7 @@
     %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
     :javascript
       var app_root = "#{app_root}";
+      var auth = #{auth?};
   %body
     %div#content
       %h1 #{@title}
