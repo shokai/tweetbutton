@@ -5,9 +5,18 @@ $(function(){
         if(detail.css('visibility') == 'hidden') detail.css('visibility', 'visible');
         else detail.css('visibility', 'hidden');
     });
+    if(auth && document.referrer.length < 1){
+        tweet(function(res){
+            if(res.error != null) return;
+            $('div#tweet').html('Success!!')
+            setTimeout(function(){
+                window.close();
+            }, 1000);
+        });
+    };
 });
 
-var tweet = function(){
+var tweet = function(callback){
     if(!message || message.length < 1) return;
     log('');
     var post_data = {message : message};
@@ -26,6 +35,7 @@ var tweet = function(){
             $('textarea#source').val('');
         }
         $('div#tweet').click(tweet).removeClass('button_disable').html('tweet');
+        if(typeof(callback)=='function') callback(res);
     }, 'json');
 };
 
