@@ -1,10 +1,15 @@
 require 'rubygems'
-require 'sinatra'
 require 'bundler/setup'
+require 'rack'
+require 'sinatra'
+require 'sinatra/reloader' if development?
+$stdout.sync = true if development?
+require 'yaml'
+require 'json'
+require 'oauth'
+require 'twitter'
 
 require File.dirname(__FILE__)+'/helper'
 require File.dirname(__FILE__)+'/main'
-
-set :environemt, :production
 
 run Sinatra::Application

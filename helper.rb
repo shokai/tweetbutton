@@ -1,11 +1,4 @@
-require 'rubygems'
-require 'bundler/setup'
-require 'rack'
-require 'sinatra/reloader'
-require 'yaml'
-require 'json'
-require 'oauth'
-require 'twitter'
+
 helpers do
   include Rack::Utils
   alias_method :h, :escape_html
@@ -19,7 +12,9 @@ rescue => e
   STDERR.puts e
 end
 
-if production?
+if development?
+  set :sessions, true
+elsif production?
   use Rack::Session::Cookie,
   :key => 'rack.session',
   :domain => @@conf['session_domain'],

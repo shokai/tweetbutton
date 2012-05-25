@@ -1,10 +1,11 @@
-source 'http://rubygems.org'
+source :rubygems
 
+gem 'foreman'
 gem 'rack'
 gem 'thin'
 gem 'sinatra'
 gem 'sinatra-reloader'
 gem 'haml'
 gem 'json'
-gem 'twitter', '>=1.5.0'
-gem 'oauth'
+gem 'twitter'
+gem 'oauth', '0.4.5'
