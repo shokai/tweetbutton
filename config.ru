@@ -8,8 +8,7 @@ require 'yaml'
 require 'json'
 require 'oauth'
 require 'twitter'
-
-require File.dirname(__FILE__)+'/helper'
-require File.dirname(__FILE__)+'/main'
+require File.dirname(__FILE__)+'/bootstrap'
+Bootstrap.init :helpers, :controllers
 
 run Sinatra::Application

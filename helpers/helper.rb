@@ -4,27 +4,19 @@ helpers do
   alias_method :h, :escape_html
 end
 
-begin
-  @@conf = YAML::load open(File.dirname(__FILE__)+'/config.yaml').read
-  p @@conf
-rescue => e
-  STDERR.puts 'config.yaml load error!'
-  STDERR.puts e
-end
-
 if development?
   set :sessions, true
 elsif production?
   use Rack::Session::Cookie,
   :key => 'rack.session',
-  :domain => @@conf['session_domain'],
+  :domain => Conf['session_domain'],
   :path => '/',
   :expire_after => 60*60*24*14, # 2 weeks
-  :secret => @@conf['session_secret']
+  :secret => Conf['session_secret']
 end
 
 def consumer
-  OAuth::Consumer.new(@@conf['twitter_key'], @@conf['twitter_secret'],
+  OAuth::Consumer.new(Conf['twitter_key'], Conf['twitter_secret'],
                       :site => "http://twitter.com")
 end
 

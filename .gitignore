@@ -3,5 +3,5 @@
 .DS_Store
 *.lock
 .bundle
-config.yaml
-*#
+config.yml
+*#*
