@@ -1,7 +1,7 @@
 
 if development?
   set :sessions, true
-elsif production?
+else
   use Rack::Session::Cookie,
   :key => 'rack.session',
   :domain => Conf['session_domain'],
