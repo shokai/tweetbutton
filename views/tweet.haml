@@ -1,7 +1,7 @@
 !!! XML
 %html
   %head
-    %title #{h @message}
+    %title= @message
     - if auth?
       %link{:rel => 'apple-touch-icon', :href => session[:twitter_icon]}
     %meta{:name => 'viewport', :content => 'width=device-width, user-scalable=no'}
@@ -13,7 +13,7 @@
     %script{:type => 'text/javascript', :src => 'http://platform.twitter.com/widgets.js'}
     :javascript
       var app_root = "#{app_root}";
-      var message = "#{h @message}";
+      var message = "#{@message}";
       var auth = #{auth?};
   %body
     %div#content
@@ -29,7 +29,7 @@
               @#{session[:twitter_name]}
             &nbsp;|&nbsp;
             %a{:href => "#{app_root}/logout"} [logout]
-      %div#message= h @message
+      %div#message= @message
       - if auth?
         %div.button#tweet tweet
       - else
@@ -41,7 +41,7 @@
           %li
             %a{:href => 'http://twitter.com/share', :class => 'twitter-share-button',
                'data-url' => "#{app_root}/t/#{URI.encode @message}", 'data-count' => 'horizontal',
-               'data-text' => "#{h @message}ボタン #tweet_button"}
+               'data-text' => "#{@message}ボタン #tweet_button"}
               Tweet
         %a{:id => 'info'} [?]
         %div#detail

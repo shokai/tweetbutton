@@ -1,9 +1,4 @@
 
-helpers do
-  include Rack::Utils
-  alias_method :h, :escape_html
-end
-
 if development?
   set :sessions, true
 elsif production?
@@ -18,6 +13,11 @@ end
 def consumer
   OAuth::Consumer.new(Conf['twitter_key'], Conf['twitter_secret'],
                       :site => "http://twitter.com")
+end
+
+def auth?
+  return true if session[:access_token] and session[:access_token_secret]
+  return false
 end
 
 def app_root
