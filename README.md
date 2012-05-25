@@ -7,7 +7,7 @@ Make tweet button for iPhone/Android.
 Install Dependencies
 ====================
 
-    % gem install bundler
+    % gem install bundler foreman
     % bundle install
 
 
@@ -16,15 +16,29 @@ Config
 
 [Regist your app on Twitter](http://twitter.com/apps) and get API-Keys.
 
-    % cp sample.config.yaml config.yaml
+    % cp sample.config.yml config.yml
 
 
 Run
 ===
 
-    % ruby development.ru
+    % foreman start
 
-or use Passenger.
+=> http://localhost:5000
+
+
+Deploy
+------
+
+    % heroku create --stack cedar
+    % git branch deploy
+    % git checkout deploy
+    % git add config.yml
+    % git commit -m 'add config.yml'
+    % git push heroku deploy:master
+
+
+or, use Passenger.
 
 
 LICENSE:
