@@ -1,13 +1,15 @@
 
-if development?
+configure :development do
   set :sessions, true
-else
+end
+
+configure :production do
   use Rack::Session::Cookie,
-  :key => 'rack.session',
-  :domain => Conf['session_domain'],
-  :path => '/',
-  :expire_after => 60*60*24*14, # 2 weeks
-  :secret => Conf['session_secret']
+    :key => 'rack.session',
+    :domain => Conf['session_domain'],
+    :path => '/',
+    :expire_after => 60*60*24*14, # 2 weeks
+    :secret => Conf['session_secret']
 end
 
 def consumer
