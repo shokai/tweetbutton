@@ -27,8 +27,8 @@ post '/tweet' do
   else
     begin
       Twitter.configure do |config|
-        config.consumer_key = Conf['twitter_key']
-        config.consumer_secret = Conf['twitter_secret']
+        config.consumer_key = Conf['twitter']['key']
+        config.consumer_secret = Conf['twitter']['secret']
         config.oauth_token = session[:access_token]
         config.oauth_token_secret = session[:access_token_secret]
       end

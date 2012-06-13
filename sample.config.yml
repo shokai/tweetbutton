@@ -1,4 +1,6 @@
-twitter_key : 'api-consumer-key'
-twitter_secret : 'api-consumer-secret'
-session_domain : 'your.apphost.com'
-session_secret : '!!!!__change_this_str__!!!!'
+twitter :
+  key : 'api-consumer-key'
+  secret : 'api-consumer-secret'
+session :
+  domain : 'your.apphost.com'
+  secret : '!!!!__change_this_str__!!!!'
